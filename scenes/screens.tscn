@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://csh3ryrkqga46"]
+
+[node name="Screens" type="Node2D"]
+
+[node name="Screen_0" type="Camera2D" parent="."]
+position = Vector2(288, 0)
+anchor_mode = 0
+enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 608
+limit_bottom = 180
+
+[node name="Screen_1" type="Camera2D" parent="."]
+position = Vector2(608, 30)
+anchor_mode = 0
+enabled = false
+limit_left = 608
+limit_top = 0
+limit_right = 928
+limit_bottom = 210
+
+[node name="Screen_2" type="Camera2D" parent="."]
+position = Vector2(624, 210)
+anchor_mode = 0
+enabled = false
+limit_left = 608
+limit_top = 210
+limit_right = 944
+limit_bottom = 390
+
+[node name="Screen_3" type="Camera2D" parent="."]
+position = Vector2(944, 0)
+anchor_mode = 0
+enabled = false
+limit_left = 944
+limit_top = 0
+limit_right = 1264
+limit_bottom = 390
+
+[node name="Screen_4" type="Camera2D" parent="."]
+position = Vector2(1264, -180)
+anchor_mode = 0
+enabled = false
+limit_left = 1264
+limit_top = -180
+limit_right = 1584
+limit_bottom = 100
+
+[node name="Screen_5" type="Camera2D" parent="."]
+position = Vector2(1584, 0)
+anchor_mode = 0
+enabled = false
+limit_left = 1584
+limit_top = -180
+limit_right = 2128
+limit_bottom = 180
+
+[node name="Screen_6" type="Camera2D" parent="."]
+position = Vector2(2128, -96)
+anchor_mode = 0
+enabled = false
+limit_left = 2128
+limit_top = -295
+limit_right = 2448
+limit_bottom = 84
+
+[node name="Screen_7" type="Camera2D" parent="."]
+position = Vector2(2448, -295)
+anchor_mode = 0
+enabled = false
+limit_left = 2448
+limit_top = -295
+limit_right = 2896
+limit_bottom = -115
+
+[node name="Screen_8" type="Camera2D" parent="."]
+position = Vector2(2896, -295)
+anchor_mode = 0
+enabled = false
+limit_left = 2896
+limit_top = -295
+limit_right = 3216
+limit_bottom = -115
+
+[node name="Screen_9" type="Camera2D" parent="."]
+position = Vector2(3216, -295)
+anchor_mode = 0
+enabled = false
+limit_left = 3216
+limit_top = -295
+limit_right = 3536
+limit_bottom = -115
+
+[node name="Screen_10" type="Camera2D" parent="."]
+position = Vector2(3536, -295)
+anchor_mode = 0
+enabled = false
+limit_left = 3536
+limit_top = -295
+limit_right = 3920
+limit_bottom = -115
+
+[node name="Screen_11" type="Camera2D" parent="."]
+position = Vector2(3920, -295)
+anchor_mode = 0
+enabled = false
+limit_left = 3920
+limit_top = -295
+limit_right = 4239
+limit_bottom = -115
+
+[node name="Screen_12" type="Camera2D" parent="."]
+position = Vector2(4239, -295)
+anchor_mode = 0
+enabled = false
+limit_left = 4239
+limit_top = -295
+limit_right = 4943
+limit_bottom = -80

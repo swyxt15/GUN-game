@@ -1,0 +1,478 @@
+[gd_scene load_steps=50 format=3 uid="uid://ccf5ekqiqwejh"]
+
+[ext_resource type="Script" uid="uid://cne6c5g2lcx0j" path="res://scripts/player.gd" id="1_txf0b"]
+[ext_resource type="Texture2D" uid="uid://c0alhu6sq132k" path="res://textures/Player/player_sprite_sheet.png" id="2_g2els"]
+[ext_resource type="Shader" uid="uid://bji4kgfe3kmkg" path="res://shaders/flicker.gdshader" id="2_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://cq78pj7lc1kk0" path="res://textures/Player/crosshair.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cw2cemwiym5t6" path="res://textures/Player/orange_gun.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://b1ndknwnagnqh" path="res://textures/Player/brush_sprite_sheet.png" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://b7dvqy7htbbck" path="res://textures/Player/pink_gun.png" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://6gaqmej6yk63" path="res://textures/Player/sniper.png" id="8_smehm"]
+[ext_resource type="Shader" uid="uid://kdi7pex4u30l" path="res://shaders/pixel_perfect.gdshader" id="9_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://byer8upk0xkxq" path="res://textures/Player/line.png" id="10_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://csvd467q8hcjf" path="res://textures/Player/bomb.png" id="11_d2wvv"]
+[ext_resource type="FontFile" uid="uid://gimhgiy384ur" path="res://fonts/RasterForgeRegular-JpBgm.ttf" id="12_3v2ag"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjrip"]
+shader = ExtResource("2_tuyoq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("2_g2els")
+region = Rect2(48, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("2_g2els")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("2_g2els")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_g2els")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_g2els")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_g2els")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_g2els")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_g2els")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo4tv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}],
+"loop": false,
+"name": &"Jump_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": false,
+"name": &"Jump_ground",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}],
+"loop": false,
+"name": &"Jump_straight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}],
+"loop": false,
+"name": &"Jump_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}],
+"loop": false,
+"name": &"Looking",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmhan"]
+size = Vector2(40, 104)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tuyoq"]
+shader = ExtResource("2_tuyoq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ur7pv"]
+shader = ExtResource("2_tuyoq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_smehm"]
+shader = ExtResource("2_tuyoq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(0, 0, 19, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(19, 0, 19, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(38, 0, 19, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(57, 0, 19, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(57, 14, 19, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(38, 14, 19, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(19, 14, 19, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(0, 14, 19, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r5pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
+size = Vector2(25, 7)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4r1p"]
+shader = ExtResource("2_tuyoq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3v2ag"]
+shader = ExtResource("9_y4r1p")
+shader_parameter/pixel_size = 1.0
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2wvv"]
+shader = ExtResource("2_tuyoq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
+atlas = ExtResource("11_d2wvv")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l71n6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ni07")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d2wvv"]
+font = ExtResource("12_3v2ag")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(0, 0, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("11_d2wvv")
+region = Rect2(0, 0, 11, 0)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 65
+script = ExtResource("1_txf0b")
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_fjrip")
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_bo4tv")
+animation = &"Idle"
+offset = Vector2(0, -1)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -13)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_fmhan")
+
+[node name="Hurt_area" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_area"]
+position = Vector2(0, -13)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_fmhan")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="Green_ink_area" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green_ink_area"]
+visible = false
+position = Vector2(0, -13)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_fmhan")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="FallJump" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="Idle" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="CooldownMouse" type="Timer" parent="."]
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+position = Vector2(18.5, -13.5)
+texture = ExtResource("3_qhqgy")
+
+[node name="Orange_gun" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_tuyoq")
+position = Vector2(2, -11)
+texture = ExtResource("4_dqkch")
+
+[node name="Pink_gun" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_ur7pv")
+position = Vector2(2, -11)
+texture = ExtResource("6_fjrip")
+
+[node name="Bouncing_on_wall" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Brush" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_smehm")
+position = Vector2(10, -17)
+sprite_frames = SubResource("SpriteFrames_4r5pv")
+offset = Vector2(0.5, 0)
+
+[node name="Brush_area" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brush_area"]
+position = Vector2(12.5, -13.5)
+shape = SubResource("RectangleShape2D_qlg0r")
+disabled = true
+debug_color = Color(0.7, 0.5803, 0.301, 0.419608)
+
+[node name="Sniper" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_y4r1p")
+position = Vector2(3.5, -11.5)
+texture = ExtResource("8_smehm")
+
+[node name="RayCastSniper" type="RayCast2D" parent="."]
+position = Vector2(0, -11.5)
+target_position = Vector2(320, 0)
+
+[node name="LineSniper" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_3v2ag")
+position = Vector2(9.5, -11.5)
+texture = ExtResource("10_d2wvv")
+centered = false
+offset = Vector2(-2, -3)
+
+[node name="Bomb" type="AnimatedSprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_d2wvv")
+position = Vector2(1.5, -10.5)
+sprite_frames = SubResource("SpriteFrames_l71n6")
+
+[node name="RayCast_floor" type="RayCast2D" parent="."]
+position = Vector2(0, -1)
+target_position = Vector2(0, 540)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 101.0
+offset_bottom = 16.0
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 101.0
+offset_bottom = 17.0
+text = "100"
+label_settings = SubResource("LabelSettings_d2wvv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Orange_gun" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 195.0
+offset_top = 9.0
+offset_right = 217.0
+offset_bottom = 22.0
+texture = ExtResource("4_dqkch")
+stretch_mode = 4
+
+[node name="Pink_gun" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 221.0
+offset_top = 9.0
+offset_right = 243.0
+offset_bottom = 22.0
+texture = ExtResource("6_fjrip")
+stretch_mode = 4
+
+[node name="Brush" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 247.0
+offset_top = 2.0
+offset_right = 270.0
+offset_bottom = 27.0
+texture = SubResource("AtlasTexture_l71n6")
+stretch_mode = 4
+
+[node name="Bomb" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 270.0
+offset_top = 4.0
+offset_right = 293.0
+offset_bottom = 28.0
+texture = SubResource("AtlasTexture_ke2ow")
+stretch_mode = 4
+
+[node name="Sniper" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 293.0
+offset_top = 9.0
+offset_right = 315.0
+offset_bottom = 22.0
+texture = ExtResource("8_smehm")
+stretch_mode = 4
+
+[node name="CoyoteTime" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="body_entered" from="Hurt_area" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_entered" from="Green_ink_area" to="." method="_on_green_ink_area_body_entered"]
+[connection signal="body_exited" from="Green_ink_area" to="." method="_on_green_ink_area_body_exited"]
+[connection signal="frame_changed" from="Brush" to="." method="_on_brush_frame_changed"]

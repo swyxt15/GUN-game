@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cucfokkqy58g6"]
+
+[ext_resource type="Texture2D" path="res://textures/backgrounds/day.jpg" id="1_oabld"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7s6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_oabld")
+}],
+"loop": true,
+"name": &"day",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 90)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_i7s6n")
+animation = &"day"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 90)
